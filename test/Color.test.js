@@ -1,8 +1,12 @@
-const Color = artifacts.require('./Color.sol');
+const Color = artifacts.require('Color.sol');
 
-require('chai').use(require('chai-as-promised')).should();
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
 
-const SimpleStorage = artifacts.require('SimpleStorage.sol');
+chai.use(chaiAsPromised);
+const should = chai.should();
+const assert = chai.assert;
+const expect = chai.expect;
 
 contract('Color', (accounts) => {
   let contract;
@@ -60,10 +64,9 @@ contract('Color', (accounts) => {
       await contract.mint('#000000');
       const totalSupply = await contract.totalSupply();
 
-      let colors;
       let result = [];
       for (let i = 0; i < totalSupply; i++) {
-        color = await contract.colors(i);
+        const color = await contract.colors(i);
         result.push(color);
       }
 

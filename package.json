@@ -1,0 +1,35 @@
+{
+  "name": "card-match-dapp-client",
+  "description": "A decentralized version of the popular card pair matching game.",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Laxman Desai",
+    "email": "lolopaw24@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relaxxpls/card-match-dapp.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "link-contracts": "cd lib && ln -s ../../build/contracts contracts"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1",
+    "next": "^12.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "web3": "^1.6.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19"
+  }
+}
