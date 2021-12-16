@@ -39,8 +39,6 @@ contract('Color', (accounts) => {
     it('creates a new token', async () => {
       const result = await contract.mint('#EC058E');
       const totalSupply = await contract.totalSupply();
-
-      // ? Success
       assert.equal(totalSupply, 1);
 
       const event = result.logs[0].args;

@@ -31,7 +31,7 @@ contract Color is ERC721, ERC721Enumerable {
     require(!_colorExists[_color], 'Color already exists');
 
     colors.push(_color);
-    uint256 _id = colors.length - 1;
+    uint256 _id = colors.length;
 
     _mint(msg.sender, _id);
     _colorExists[_color] = true;

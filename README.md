@@ -1,2 +1,4 @@
 # color-nft-dapp
-Color NFTs!
+
+Color based NFTs!
+Built using Solidity, Truffle Suite, Ethers.js and Next.js!
