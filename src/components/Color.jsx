@@ -3,11 +3,13 @@ import { useState, useRef, useEffect } from 'react';
 import { ethers } from 'ethers';
 
 import artifact from '../../build/contracts/Color.json';
+import colors from './colors.json';
 import useColorContract from '../hooks/useColorContract';
 
 const ColorContainer = () => {
   // const { account, library } = useWeb3React();
-  const { colors, totalSupply, mint } = useColorContract();
+  // const { colors, totalSupply, mint } = useColorContract();
+  const account = 'laxman';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,57 +18,78 @@ const ColorContainer = () => {
   };
 
   return (
-    <div>
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossOrigin="anonymous"
-      />
+    <>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <h1>Color Tokens</h1>
+        <span id="account">Welcome, {account}</span>
 
-      {/* <nav className="p-0 shadow navbar navbar-dark fixed-top bg-dark flex-md-nowrap">
-        <div className="mr-0 navbar-brand col-sm-3 col-md-2">Color Tokens</div>
-        <ul className="px-3 navbar-nav">
-          <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-            <small className="text-white">
-              <span id="account">Welcome, {account}</span>
-            </small>
-          </li>
-        </ul>
-      </nav> */}
+        <main role="main" className="text-center col-lg-12 d-flex">
+          <h3>Issue Token</h3>
 
-      <div className="mt-5 container-fluid">
-        <div className="row">
-          <main role="main" className="text-center col-lg-12 d-flex">
-            <div className="ml-auto mr-auto content">
-              <h1>Issue Token</h1>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  className="mb-1 form-control"
-                  placeholder="e.g. #FFFFFF"
-                  name="color"
-                />
-                <input
-                  type="submit"
-                  className="btn btn-block btn-primary"
-                  value="MINT"
-                />
-              </form>
-            </div>
-          </main>
-        </div>
-        <hr />
-        <div className="text-center row">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="mb-1 form-control"
+              placeholder="e.g. #FFFFFF"
+              name="color"
+            />
+            <input
+              type="submit"
+              className="btn btn-block btn-primary"
+              value="MINT"
+            />
+          </form>
+        </main>
+
+        <h3>My tokens:</h3>
+
+        <h3>Already issued:</h3>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1rem',
+            height: '100%',
+            margin: '2rem 0',
+          }}
+        >
           {colors.map((color) => (
-            <div key={color} className="mb-3 col-md-3">
-              <div className="token" style={{ backgroundColor: color }}></div>
-              <div>{color}</div>
+            <div
+              key={color}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: color,
+                borderRadius: '50%',
+                padding: '1rem',
+                width: '5rem',
+                aspectRatio: '1',
+              }}
+            >
+              <span
+                style={{
+                  padding: '3px',
+                  background: '#ffffffdd',
+                  borderRadius: '0.5rem',
+                }}
+              >
+                {color}
+              </span>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
