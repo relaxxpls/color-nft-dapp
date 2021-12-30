@@ -59,7 +59,7 @@ const ColorContainer = () => {
             justifyContent: 'center',
             gap: '1rem',
             height: '100%',
-            margin: '2rem 0',
+            padding: '2rem',
           }}
         >
           {colors.map((color) => (
@@ -71,8 +71,7 @@ const ColorContainer = () => {
                 justifyContent: 'center',
                 background: color,
                 borderRadius: '50%',
-                padding: '1rem',
-                width: '5rem',
+                width: '6rem',
                 aspectRatio: '1',
               }}
             >
@@ -81,9 +80,10 @@ const ColorContainer = () => {
                   padding: '3px',
                   background: '#ffffffdd',
                   borderRadius: '0.5rem',
+                  fontFamily: 'Fira Code, monospace',
                 }}
               >
-                {color}
+                {color.toUpperCase()}
               </span>
             </div>
           ))}
