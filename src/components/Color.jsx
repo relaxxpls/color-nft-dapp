@@ -51,38 +51,14 @@ const ColorContainer = () => {
         <h3>My tokens:</h3>
 
         <h3>Already issued:</h3>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1rem',
-            height: '100%',
-            padding: '2rem',
-          }}
-        >
+        <div className="flex flex-wrap items-center justify-center gap-4 p-8">
           {colors.map((color) => (
             <div
               key={color}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: color,
-                borderRadius: '50%',
-                width: '6rem',
-                aspectRatio: '1',
-              }}
+              className={`flex items-center justify-center w-24 rounded-full aspect-square`}
+              style={{ background: color }}
             >
-              <span
-                style={{
-                  padding: '3px',
-                  background: '#ffffffdd',
-                  borderRadius: '0.5rem',
-                  fontFamily: 'Fira Code, monospace',
-                }}
-              >
+              <span className="p-0.5 bg-[#ffffffdd] rounded-lg font-mono">
                 {color.toUpperCase()}
               </span>
             </div>
